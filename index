@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuestra Web Institucional</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav> </nav>
+
+    <header>
+        <h1>Bienvenidos a [Nombre del Equipo]</h1>
+    </header>
+
+    <section id="nosotros">
+        <div class="contenedor-amigos">
+            <div class="tarjeta-amigo">
+                <img src="amigo1.jpg" alt="Nombre Amigo">
+                <h3>Nombre</h3>
+                <p>Rol / Especialidad</p>
+            </div>
+        </div>
+    </section>
+
+    <footer> </footer>
+</body>
+</html>
