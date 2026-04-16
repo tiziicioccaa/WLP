@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultora Moderna - Soluciones Integrales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CONFIGURACIÓN VISUAL MODERNA */
+        :root {
+            --color-principal: #1a252f; /* Azul muy oscuro, casi negro */
+            --color-acento: #3498db; /* Azul brillante */
+            --color-acento-hover: #2980b9; /* Azul más oscuro para hover */
+            --color-texto: #333;
+            --color-texto-suave: #7f8c8d;
+            --gris-fondo: #f8f9fa;
+            --blanco: #ffffff;
+            --sombra-suave: 0 10px 30px rgba(0,0,0,0.05);
+            --sombra-fuerte: 0 15px 35px rgba(0,0,0,0.1);
+            --transicion: all 0.3s ease;
+        }
+
+        * { box-sizing: border-box; }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            margin: 0; 
+            color: var(--color-texto); 
+            line-height: 1.8; 
+            scroll-behavior: smooth; 
+            background-color: var(--blanco);
+        }
+        
+        /* Navegación Moderna con Gradiente Sutil */
+        header { 
+            background: linear-gradient(135deg, var(--color-principal) 0%, #2c3e50 100%);
+            color: var(--blanco); 
+            padding: 1rem 0; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.15); 
+        }
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            max-width: 1200px; 
+            margin: auto; 
+            padding: 0 20px;
+        }
+        .nav-logo {
+            font-size: 1.6rem; 
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        .nav-links a { 
+            color: rgba(255,255,255,0.8); 
+            text-decoration: none; 
+            font-weight: 400; 
+            font-size: 0.95rem;
+            transition: var(--transicion); 
+            padding: 5px 0;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--color-acento);
+            transition: var(--transicion);
+        }
+        .nav-links a:hover { color: var(--blanco); }
+        .nav-links a:hover::after { width: 100%; }
+
+        section { padding: 100px 20px; max-width: 1200px; margin: auto; }
+        .titulo-seccion { 
+            text-align: center; 
+            margin-bottom: 60px; 
+            font-size: 2.5rem; 
+            font-weight: 700;
+            color: var(--color-principal); 
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .titulo-seccion::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: var(--color-acento);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* 1. PRESENTACIÓN (Hero) - Estilo Minimalista y Potente */
+        .hero { 
+            background-color: var(--gris-fondo); 
+            text-align: center; 
+            padding: 150px 20px; 
+            border-bottom: 1px solid #eee;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNkYmRkZGUiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMCAwaDQwdjQwSDBWMHptMjAgMjBoMjB2MjBIMjBWMjB6TTAgMjBoMjB2MjBIMFYyMHoyMCAwaDIwdjIwSDIwVjB6Ii8+PC9nPjwvZz48L3N2Zz4='); /* Patrón de fondo sutil */
+        }
+        .logo-container { 
+            width: 150px; height: 150px; 
+            border: 2px solid #e0e0e0; 
+            margin: 0 auto 30px; 
+            display: flex; align-items: center; 
+            justify-content: center; 
+            background: var(--blanco); 
+            border-radius: 20px;
+            box-shadow: var(--sombra-suave);
+            overflow: hidden;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--color-principal);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero p {
+            max-width: 750px; 
+            margin: 0 auto 40px; 
+            font-size: 1.25rem; 
+            color: var(--color-texto-suave);
+            font-weight: 300;
+        }
+        .btn-accion {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--color-acento);
+            color: var(--blanco);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transicion);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        .btn-accion:hover {
+            background-color: var(--color-acento-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        /* 2. SERVICIOS - Tarjetas con Iconos y Efectos */
+        .servicios-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+        }
+        .servicio-card { 
+            background: var(--blanco); 
+            padding: 50px 30px; 
+            border-radius: 15px; 
+            box-shadow: var(--sombra-suave); 
+            text-align: center; 
+            transition: var(--transicion);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        .servicio-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background-color: var(--color-acento);
+            transform: scaleX(0);
+            transition: var(--transicion);
+        }
+        .servicio-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: var(--sombra-fuerte);
+        }
+        .servicio-card:hover::before { transform: scaleX(1); }
+
+        .servicio-icon {
+            font-size: 3rem;
+            color: var(--color-acento);
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+        .servicio-card h3 { 
+            font-size: 1.5rem; 
+            font-weight: 600; 
+            color: var(--color-principal); 
+            margin-bottom: 15px; 
+        }
+        .servicio-card p { color: var(--color-texto-suave); font-size: 0.95rem; }
+
+        /* 3. QUIÉNES SOMOS - Diseño de Equipo Profesional (4 INTEGRANTES) */
+        #nosotros { background-color: var(--gris-fondo); }
+        .equipo-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 40px; 
+        }
+        .integrante-card { 
+            background: var(--blanco); 
+            padding: 40px 20px; 
+            text-align: center; 
+            border-radius: 15px; 
+            box-shadow: var(--sombra-suave);
+            transition: var(--transicion);
+            border: 1px solid #f0f0f0;
+        }
+        .integrante-card:hover { transform: translateY(-5px); box-shadow: var(--sombra-fuerte); }
+        
+        /* Espacio Circular para la foto */
+        .foto-espacio { 
+            width: 160px; height: 160px; 
+            background-color: #eee; 
+            border-radius: 50%; 
+            margin: 0 auto 25px; 
+            display: flex; align-items: center; justify-content: center;
+            border: 5px solid var(--blanco);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden; 
+            position: relative;
+        }
+        .foto-espacio img { width: 100%; height: 100%; object-fit: cover; transition: var(--transicion); }
+        .foto-placeholder-text {
+            position: absolute; font-size: 0.8rem; color: #999; font-style: italic;
+        }
+
+        .integrante-card h3 { font-size: 1.3rem; font-weight: 600; color: var(--color-principal); margin-bottom: 5px; }
+        .integrante-card p { color: var(--color-acento); font-weight: 500; font-size: 0.9rem; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* 4. CONTACTO - Formulario Limpio y Datos Modernos */
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            background: var(--blanco);
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: var(--sombra-suave);
+            border: 1px solid #f0f0f0;
+        }
+        .contacto-info h3 { font-size: 1.8rem; color: var(--color-principal); margin-bottom: 30px; }
+        .info-item { display: flex; align-items: center; margin-bottom: 20px; gap: 15px; color: var(--color-texto-suave); }
+        .info-item i { font-size: 1.2rem; color: var(--color-acento); width: 30px; text-align: center; }
+
+        .contacto-form { display: flex; flex-direction: column; gap: 20px; }
+        .form-grupo { display: flex; flex-direction: column; }
+        .form-grupo label { font-size: 0.9rem; font-weight: 600; color: var(--color-principal); margin-bottom: 8px; }
+        input, textarea { 
+            padding: 15px; 
+            border: 1px solid #e0e0e0; 
+            border-radius: 8px; 
+            font-size: 1rem; 
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transicion);
+            background-color: var(--gris-fondo);
+        }
+        input:focus, textarea:focus { outline: none; border-color: var(--color-acento); background-color: var(--blanco); box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1); }
+        
+        .btn-enviar { 
+            background-color: var(--color-principal); 
+            color: var(--blanco); 
+            border: none; 
+            padding: 15px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 1rem; 
+            font-weight: 600; 
+            transition: var(--transicion);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-enviar:hover { background-color: #000; transform: translateY(-2px); }
+
+        /* Footer Moderno y Oscuro */
+        footer { 
+            background-color: var(--color-principal); 
+            color: rgba(255,255,255,0.7); 
+            text-align: center; 
+            padding: 50px 20px; 
+            font-size: 0.9rem; 
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        footer b { color: var(--blanco); font-size: 1.1rem; }
+        .footer-social { margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; font-size: 1.2rem; }
+        .footer-social a { color: rgba(255,255,255,0.5); transition: var(--transicion); }
+        .footer-social a:hover { color: var(--color-acento); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* En móvil se ocultaría el menú simple */
+            .contacto-grid { grid-template-columns: 1fr; padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="nav-logo">CONSULTORA LOGO</div>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" style="max-width: 70%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span class="foto-placeholder-text" style="display:none;">[LOGO]</span>
+        </div>
+        <h1>Soluciones Estratégicas para tu Negocio</h1>
+        <p>Impulsamos el crecimiento de organizaciones visionarias a través de consultoría integral, innovación y un enfoque en resultados medibles.</p>
+        <a href="#contacto" class="btn-accion">Solicitar Asesoría <i class="fas fa-arrow-right"></i></a>
+    </section>
+
+    <section id="servicios">
+        <h2 class="titulo-seccion">Nuestros Servicios</h2>
+        <div class="servicios-container">
+            <div class="servicio-card">
+                <i class="fas fa-balance-scale servicio-icon"></i>
+                <h3>Asesoría Legal</h3>
+                <p>Protección y cumplimiento normativo integral para asegurar la base de tu empresa.</p>
+            </div>
+            <div class="servicio-card">
+                <i class="fas fa-chart-line servicio-icon"></i>
+                <h3>Gestión Financiera</h3>
+                <p>Optimización de recursos, análisis de costos y proyecciones para maximizar la rentabilidad.</p>
+            </div>
+            <div class="servicio-card">
+                <i class="fas fa-users servicio-icon"></i>
+                <h3>Recursos Humanos</h3>
+                <p>Estrategias de talento, clima organizacional y capacitación para potenciar a tu equipo.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros">
+        <h2 class="titulo-seccion">Conoce a Nuestro Equipo</h2>
+        <div class="equipo-container">
+            
+            <div class="integrante-card">
+                <div class="foto-espacio">
+                    <img src="foto1.jpg" alt="Integrante 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="foto-placeholder-text">[FOTO 1]</span>
+                </div>
+                <h3>Nombre Apellido</h3>
+                <p>Director Ejecutivo</p>
+            </div>
+
+            <div class="integrante-card">
+                <div class="foto-espacio">
+                    <img src="foto2.jpg" alt="Integrante 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="foto-placeholder-text">[FOTO 2]</span>
+                </div>
+                <h3>Nombre Apellido</h3>
+                <p>Estratega de Negocios</p>
+            </div>
+
+            <div class="integrante-card">
+                <div class="foto-espacio">
+                    <img src="foto3.jpg" alt="Integrante 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="foto-placeholder-text">[FOTO 3]</span>
+                </div>
+                <h3>Nombre Apellido</h3>
+                <p>Analista Financiero</p>
+            </div>
+
+            <div class="integrante-card">
+                <div class="foto-espacio">
+                    <img src="foto4.jpg" alt="Integrante 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="foto-placeholder-text">[FOTO 4]</span>
+                </div>
+                <h3>Nombre Apellido</h3>
+                <p>Consultor de RRHH</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2 class="titulo-seccion">Trabajemos Juntos</h2>
+        <div class="contacto-grid">
+            <div class="contacto-info">
+                <h3>Datos de Contacto</h3>
+                <p style="color: var(--color-texto-suave); margin-bottom: 30px;">Estamos listos para escuchar tu proyecto y ofrecerte la mejor solución.</p>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Dirección Ficticia 123, Ciudad, País</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>contacto@tuconsultora.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+56 9 1234 5678</span>
+                </div>
+            </div>
+            <div class="contacto-form-wrapper">
+                <div class="contacto-form">
+                    <div class="form-grupo">
+                        <label>Nombre Completo</label>
+                        <input type="text" placeholder="Ej: Juan Pérez">
+                    </div>
+                    <div class="form-grupo">
+                        <label>Correo Electrónico</label>
+                        <input type="email" placeholder="ejemplo@correo.com">
+                    </div>
+                    <div class="form-grupo">
+                        <label>Mensaje</label>
+                        <textarea rows="5" placeholder="Cuéntanos sobre tu necesidad..."></textarea>
+                    </div>
+                    <button class="btn-enviar">Enviar Mensaje</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p><b>[Nombre de la Consultora]</b> &copy; 2024 - Todos los derechos reservados.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: rgba(255,255,255,0.4);">Innovación y Estrategia en cada proyecto.</p>
+    </footer>
+
+</body>
+</html>
