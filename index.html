@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WLP-SA | Consultora </title>
+    <title>WLP-SA | Consultoría</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -18,33 +18,30 @@
         * { box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; margin: 0; color: #333; line-height: 1.6; scroll-behavior: smooth; }
         
-    
-        header { background: linear-gradient(135deg, var(--principal) 0%, #2c3e50 100%); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
+        /* Header con Logo */
+        header { background: linear-gradient(135deg, var(--principal) 0%, #2c3e50 100%); color: white; padding: 0.5rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
         nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; padding: 0 20px; }
+        
+        .nav-logo-img { height: 50px; width: auto; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3)); }
+        
         .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: var(--transicion); }
         .nav-links a:hover { color: var(--acento); }
 
-        
-        .hero { background-color: var(--gris); text-align: center; padding: 100px 20px; border-bottom: 1px solid #eee; }
-        
-        .logo-placeholder { 
-            width: 350px; 
-            max-width: 90%;
-            height: auto; 
-            margin: 0 auto 20px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            background: transparent; /* Sin fondo blanco cuadrado */
+        /* Hero Section - Foto Grupal */
+        .hero { background-color: var(--gris); text-align: center; padding: 60px 20px; border-bottom: 1px solid #eee; }
+        .foto-grupal-container { 
+            max-width: 900px; 
+            margin: 0 auto 30px; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            background: #ddd;
+            aspect-ratio: 16 / 9;
+            display: flex; align-items: center; justify-content: center;
         }
+        .foto-grupal-container img { width: 100%; height: 100%; object-fit: cover; }
 
-        .logo-placeholder img {
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0px 8px 12px rgba(0,0,0,0.15)); /* Resalta el cromado */
-        }
-
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; color: var(--principal); font-weight: 700; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--principal); font-weight: 700; }
         
         /* Servicios */
         section { padding: 80px 20px; max-width: 1200px; margin: auto; }
@@ -54,11 +51,20 @@
         .card:hover { transform: translateY(-10px); }
         .card i { font-size: 2.5rem; color: var(--acento); margin-bottom: 20px; }
 
-        /* Equipo */
+        /* Equipo con Botones Individuales */
         .grid-equipo { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
-        .integrante { text-align: center; background: var(--gris); padding: 30px 15px; border-radius: 15px; border: 1px solid #eee; }
+        .integrante { text-align: center; background: var(--gris); padding: 30px 15px; border-radius: 15px; border: 1px solid #eee; transition: var(--transicion); }
+        .integrante:hover { background: white; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        
         .foto-placeholder { width: 150px; height: 150px; border-radius: 50%; background: #ddd; margin: 0 auto 15px; border: 4px solid white; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .foto-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+
+        .btn-info { 
+            background: var(--principal); color: white; border: none; padding: 10px 20px; 
+            border-radius: 25px; cursor: pointer; font-size: 0.85rem; margin-top: 15px; 
+            transition: var(--transicion); font-family: inherit; font-weight: 600;
+        }
+        .btn-info:hover { background: var(--acento); transform: scale(1.05); }
 
         /* Contacto */
         .contacto-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
@@ -79,7 +85,9 @@
 
     <header>
         <nav>
-            <div style="font-weight: 700; font-size: 1.5rem; letter-spacing: 1px;">WLP-SA</div>
+            <a href="#inicio">
+                <img src="logo.png" alt="WLP-SA Logo" class="nav-logo-img">
+            </a>
             <div class="nav-links">
                 <a href="#inicio">Inicio</a>
                 <a href="#servicios">Servicios</a>
@@ -90,11 +98,12 @@
     </header>
 
     <section id="inicio" class="hero">
-        <div class="logo-placeholder">
-            <img src="logo.png" alt="WLP-SA Logo">
+        <div class="foto-grupal-container">
+            <img src="equipo_grupal.jpg" alt="Equipo WLP-SA" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span style="display:none; color:#666; font-weight:600;">[FOTO GRUPAL WLP-SA]</span>
         </div>
         <h1>Consultoría WLP-SA</h1>
-        <p>Consultora de .</p>
+        <p>Expertos en soluciones estratégicas y gestión integral.</p>
     </section>
 
     <section id="servicios">
@@ -110,20 +119,28 @@
         <h2 class="titulo">Nuestro Equipo</h2>
         <div class="grid-equipo">
             <div class="integrante">
-                <div class="foto-placeholder"><img src="1000393578.jpg" alt="Integrante 1" onerror="this.style.display='none';"></div>
-                <h3>Tiziano Ciocca </h3><p>CEO & Fundador</p>
+                <div class="foto-placeholder"><img src="1000393578.jpg" alt="Tiziano" onerror="this.style.display='none';"></div>
+                <h3>Tiziano Ciocca</h3>
+                <p>CEO & Fundador</p>
+                <button class="btn-info" onclick="alert('Información de Tiziano: Liderazgo estratégico y visión fundacional de WLP-SA.')">Ver Perfil</button>
             </div>
             <div class="integrante">
-                <div class="foto-placeholder"><img src="1000448711.jpg" alt="Integrante 2" onerror="this.style.display='none';"></div>
-                <h3>Elias Ramos </h3><p>Dir. Finanzas</p>
+                <div class="foto-placeholder"><img src="1000448711.jpg" alt="Elias" onerror="this.style.display='none';"></div>
+                <h3>Elias Ramos</h3>
+                <p>Dir. Finanzas</p>
+                <button class="btn-info" onclick="alert('Información de Elias: Especialista en análisis de riesgo y gestión financiera.')">Ver Perfil</button>
             </div>
             <div class="integrante">
-                <div class="foto-placeholder"><img src="1000448712.jpg" alt="Integrante 3" onerror="this.style.display='none';"></div>
-                <h3>Mateo Florentin </h3><p>Consultor Senior</p>
+                <div class="foto-placeholder"><img src="1000448712.jpg" alt="Mateo" onerror="this.style.display='none';"></div>
+                <h3>Mateo Florentin</h3>
+                <p>Consultor Senior</p>
+                <button class="btn-info" onclick="alert('Información de Mateo: Consultoría avanzada en procesos y optimización.')">Ver Perfil</button>
             </div>
             <div class="integrante">
-                <div class="foto-placeholder"><img src="foto4.jpg" alt="Integrante 4" onerror="this.style.display='none';"></div>
-                <h3>Erik Atusparia </h3><p>Gestión de Proyectos</p>
+                <div class="foto-placeholder"><img src="foto4.jpg" alt="Erik" onerror="this.style.display='none';"></div>
+                <h3>Erik Atusparia</h3>
+                <p>Gestión de Proyectos</p>
+                <button class="btn-info" onclick="alert('Información de Erik: Coordinación técnica y cumplimiento de objetivos.')">Ver Perfil</button>
             </div>
         </div>
     </section>
@@ -140,7 +157,7 @@
                 <div class="form-grupo"><input type="text" id="nombre" placeholder="Nombre" required></div>
                 <div class="form-grupo"><input type="email" id="email" placeholder="Correo" required></div>
                 <div class="form-grupo"><textarea id="mensaje" rows="4" placeholder="Tu mensaje..." required></textarea></div>
-                <button type="submit" class="btn-enviar" id="btnEnviar">Enviar a Firebase</button>
+                <button type="submit" class="btn-enviar" id="btnEnviar">Enviar Consulta</button>
             </form>
         </div>
     </section>
@@ -182,11 +199,10 @@
                 alert("¡Datos guardados con éxito!");
                 document.getElementById('contactForm').reset();
             } catch (error) {
-                console.error("Error:", error);
-                alert("Error al conectar con el servidor. Revisa la consola.");
+                alert("Error al conectar con el servidor.");
             } finally {
                 btn.disabled = false;
-                btn.innerText = "Enviar";
+                btn.innerText = "Enviar Consulta";
             }
         });
     </script>
