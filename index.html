@@ -24,10 +24,27 @@
         .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: var(--transicion); }
         .nav-links a:hover { color: var(--acento); }
 
-        /* Hero Section */
-        .hero { background-color: var(--gris); text-align: center; padding: 120px 20px; border-bottom: 1px solid #eee; }
-        .logo-placeholder { width: 120px; height: 120px; border: 2px solid #ddd; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 15px; overflow: hidden; }
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; color: var(--principal); }
+        /* Hero Section - Logo Actualizado */
+        .hero { background-color: var(--gris); text-align: center; padding: 100px 20px; border-bottom: 1px solid #eee; }
+        
+        .logo-placeholder { 
+            width: 350px; /* Tamaño aumentado para tu logo */
+            max-width: 90%;
+            height: auto; 
+            margin: 0 auto 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background: transparent; /* Sin fondo blanco cuadrado */
+        }
+
+        .logo-placeholder img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0px 8px 12px rgba(0,0,0,0.15)); /* Resalta el cromado */
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; color: var(--principal); font-weight: 700; }
         
         /* Servicios */
         section { padding: 80px 20px; max-width: 1200px; margin: auto; }
@@ -39,7 +56,7 @@
 
         /* Equipo (4 integrantes) */
         .grid-equipo { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
-        .integrante { text-align: center; background: var(--gris); padding: 30px 15px; border-radius: 15px; }
+        .integrante { text-align: center; background: var(--gris); padding: 30px 15px; border-radius: 15px; border: 1px solid #eee; }
         .foto-placeholder { width: 150px; height: 150px; border-radius: 50%; background: #ddd; margin: 0 auto 15px; border: 4px solid white; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .foto-placeholder img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -51,13 +68,18 @@
         .btn-enviar:hover { background: #2980b9; }
 
         footer { background: var(--principal); color: white; text-align: center; padding: 40px; margin-top: 50px; }
+        
+        @media (max-width: 768px) {
+            .contacto-container { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <nav>
-            <div style="font-weight: 700; font-size: 1.5rem;">WLP-SA</div>
+            <div style="font-weight: 700; font-size: 1.5rem; letter-spacing: 1px;">WLP-SA</div>
             <div class="nav-links">
                 <a href="#inicio">Inicio</a>
                 <a href="#servicios">Servicios</a>
@@ -69,11 +91,10 @@
 
     <section id="inicio" class="hero">
         <div class="logo-placeholder">
-            <img src="logo.png" alt="Logo" onerror="this.style.display='none';">
-            <span>logo.png</span>
+            <img src="logo.png" alt="WLP-SA Logo">
         </div>
         <h1>Consultoría WLP-SA</h1>
-        <p>Soluciones estratégicas y gestión integral para empresas del futuro.</p>
+        <p>Soluciones estratégicas con visión de vanguardia y gestión integral.</p>
     </section>
 
     <section id="servicios">
@@ -89,19 +110,19 @@
         <h2 class="titulo">Nuestro Equipo</h2>
         <div class="grid-equipo">
             <div class="integrante">
-                <div class="foto-placeholder"><img src="foto1.jpg" alt="1" onerror="this.style.display='none';"><span>FOTO 1</span></div>
+                <div class="foto-placeholder"><img src="foto1.jpg" alt="Integrante 1" onerror="this.style.display='none';"><span>FOTO 1</span></div>
                 <h3>Nombre 1</h3><p>CEO & Fundador</p>
             </div>
             <div class="integrante">
-                <div class="foto-placeholder"><img src="foto2.jpg" alt="2" onerror="this.style.display='none';"><span>FOTO 2</span></div>
+                <div class="foto-placeholder"><img src="foto2.jpg" alt="Integrante 2" onerror="this.style.display='none';"><span>FOTO 2</span></div>
                 <h3>Nombre 2</h3><p>Dir. Finanzas</p>
             </div>
             <div class="integrante">
-                <div class="foto-placeholder"><img src="foto3.jpg" alt="3" onerror="this.style.display='none';"><span>FOTO 3</span></div>
+                <div class="foto-placeholder"><img src="foto3.jpg" alt="Integrante 3" onerror="this.style.display='none';"><span>FOTO 3</span></div>
                 <h3>Nombre 3</h3><p>Consultor Senior</p>
             </div>
             <div class="integrante">
-                <div class="foto-placeholder"><img src="foto4.jpg" alt="4" onerror="this.style.display='none';"><span>FOTO 4</span></div>
+                <div class="foto-placeholder"><img src="foto4.jpg" alt="Integrante 4" onerror="this.style.display='none';"><span>FOTO 4</span></div>
                 <h3>Nombre 4</h3><p>Gestión de Proyectos</p>
             </div>
         </div>
