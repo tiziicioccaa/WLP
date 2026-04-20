@@ -18,58 +18,54 @@
         * { box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; margin: 0; color: #333; line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
         
-        /* Header y Nav */
         header { background: linear-gradient(135deg, var(--principal) 0%, #2c3e50 100%); color: white; padding: 0.5rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
         nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; padding: 0 20px; }
         .logo-nav img { height: 50px; width: auto; display: block; }
         .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: var(--transicion); }
         .nav-links a:hover { color: var(--acento); }
 
-        /* Hero */
         .hero { background-color: var(--gris); text-align: center; padding: 100px 20px; border-bottom: 1px solid #eee; }
         .hero h1 { font-size: 3rem; margin-bottom: 10px; color: var(--principal); font-weight: 700; }
 
-        /* Secciones Generales */
         section { padding: 80px 20px; max-width: 1200px; margin: auto; }
         .titulo { text-align: center; margin-bottom: 50px; font-size: 2.2rem; }
         
-        /* Servicios */
         .grid-servicios { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid var(--acento); transition: var(--transicion); }
 
-        /* Equipo */
         .grid-equipo { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
-        .integrante { text-align: center; background: var(--gris); padding: 40px 15px; border-radius: 15px; border: 1px solid #eee; transition: var(--transicion); cursor: pointer; }
-        .integrante:hover { background: var(--blanco); box-shadow: 0 10px 30px rgba(52, 152, 219, 0.15); transform: translateY(-5px); border-color: var(--acento); }
+        .integrante { text-align: center; background: var(--gris); padding: 40px 15px; border-radius: 15px; border: 1px solid #eee; transition: var(--transicion); }
         .foto-placeholder { width: 150px; height: 150px; border-radius: 50%; background: #ddd; margin: 0 auto 15px; border: 4px solid white; overflow: hidden; display: flex; justify-content: center; align-items: center; }
         .foto-placeholder img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Contacto */
         .contacto-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
         .form-grupo { margin-bottom: 15px; }
         input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
         .btn-enviar { background: var(--acento); color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: 600; transition: var(--transicion); }
 
-        /* --- FOTO GRUPAL FINAL CORREGIDA --- */
+        /* --- FOTO GRUPAL TAMAÑO REDUCIDO --- */
         .seccion-foto-final {
             width: 100%;
-            padding: 0;
-            margin-top: 50px;
             background-color: #000; /* Fondo negro para integrarse con la foto */
-        }
-        .foto-grupal-final { 
-            width: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: center; /* Centrado horizontal */
+            padding: 40px 0; /* Espaciado superior e inferior */
+        }
+
+        .foto-grupal-final { 
+            width: 90%; /* Ancho responsivo */
+            max-width: 1000px; /* Tamaño máximo limitado para que no sea muy grande */
             overflow: hidden;
             line-height: 0;
+            border-radius: 15px; /* Bordes redondeados opcionales */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra para dar profundidad */
         }
+
         .foto-grupal-final img { 
             width: 100%; 
-            max-width: 100%; /* Permite que se vea grande en toda la pantalla */
-            height: auto; /* Mantiene la proporción para que no se corte nada */
+            height: auto; /* Mantiene la proporción original */
             display: block;
-            object-fit: contain; /* Asegura que la imagen se vea completa de pies a cabeza */
+            object-fit: contain; /* Asegura que la imagen se vea completa */
         }
 
         /* Footer */
@@ -79,6 +75,8 @@
         @media (max-width: 768px) {
             .contacto-container { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.2rem; }
+            .seccion-foto-final { padding: 20px 0; }
+            .foto-grupal-final { max-width: 90%; } /* Un poco más pequeña en móviles */
         }
     </style>
 </head>
@@ -101,41 +99,6 @@
         <p>Expertos en soluciones estratégicas y gestión integral.</p>
     </section>
 
-    <section id="servicios">
-        <h2 class="titulo">Nuestros Servicios</h2>
-        <div class="grid-servicios">
-            <div class="card"><i class="fas fa-chart-pie"></i><h3>Estrategia</h3><p>Optimización de procesos y visión de negocio.</p></div>
-            <div class="card"><i class="fas fa-gavel"></i><h3>Legal</h3><p>Asesoría normativa y cumplimiento legal.</p></div>
-            <div class="card"><i class="fas fa-wallet"></i><h3>Finanzas</h3><p>Gestión de activos y rentabilidad corporativa.</p></div>
-        </div>
-    </section>
-
-    <section id="nosotros" style="background: #fff;">
-        <h2 class="titulo">Nuestro Equipo</h2>
-        <div class="grid-equipo">
-            <div class="integrante">
-                <div class="foto-placeholder"><img src="Tiziano.jpg" alt="Tiziano"></div>
-                <h3>Tiziano Ciocca</h3>
-                <p>AURA</p>
-            </div>
-            <div class="integrante">
-                <div class="foto-placeholder"><img src="Elias.jpg" alt="Elias"></div>
-                <h3>Elias Ramos</h3>
-                <p>Tranza</p>
-            </div>
-            <div class="integrante">
-                <div class="foto-placeholder"><img src="mateo.jpg" alt="Mateo"></div>
-                <h3>Mateo Florentin</h3>
-                <p>Empleado</p>
-            </div>
-            <div class="integrante">
-                <div class="foto-placeholder"><img src="foto4.jpg" alt="Erik"></div>
-                <h3>Erik Atusparia</h3>
-                <p>Empleado 2</p>
-            </div>
-        </div>
-    </section>
-
     <section id="contacto">
         <h2 class="titulo">Contacto</h2>
         <div class="contacto-container">
@@ -155,7 +118,7 @@
 
     <div class="seccion-foto-final">
         <div class="foto-grupal-final">
-            <img src="lospapus.png" alt="Equipo WLP-SA">
+            <img src="lospapus.jpg" alt="Equipo WLP-SA">
         </div>
     </div>
 
@@ -168,6 +131,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+        // Tu configuración de Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyCfYI8vlLlmKaAs6p2mzUz8gC_x0WmySBY",
             authDomain: "wlp-sa.firebaseapp.com",
@@ -181,11 +145,13 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
+        // Lógica del Formulario
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('btnEnviar');
             btn.disabled = true;
             btn.innerText = "Enviando...";
+
             try {
                 await addDoc(collection(db, "contactos"), {
                     nombre: document.getElementById('nombre').value,
