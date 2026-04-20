@@ -16,69 +16,60 @@
         }
 
         * { box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; margin: 0; color: #333; line-height: 1.6; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; color: #333; line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
         
-        /* Header Limpio */
-        header { background: linear-gradient(135deg, var(--principal) 0%, #2c3e50 100%); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
+        header { background: linear-gradient(135deg, var(--principal) 0%, #2c3e50 100%); color: white; padding: 0.5rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
         nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; padding: 0 20px; }
+
+        .logo-nav img { height: 50px; width: auto; display: block; }
+
         .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: var(--transicion); }
         .nav-links a:hover { color: var(--acento); }
 
-        /* Hero Inicial */
         .hero { background-color: var(--gris); text-align: center; padding: 100px 20px; border-bottom: 1px solid #eee; }
         .hero h1 { font-size: 3rem; margin-bottom: 10px; color: var(--principal); font-weight: 700; }
-        .hero p { font-size: 1.2rem; color: #666; }
 
-        /* Servicios */
         section { padding: 80px 20px; max-width: 1200px; margin: auto; }
         .titulo { text-align: center; margin-bottom: 50px; font-size: 2.2rem; }
+        
         .grid-servicios { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid var(--acento); transition: var(--transicion); }
 
-        /* Equipo con Efecto Botonera (Hover) */
         .grid-equipo { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
-        .integrante { 
-            text-align: center; 
-            background: var(--gris); 
-            padding: 40px 15px; 
-            border-radius: 15px; 
-            border: 1px solid #eee; 
-            transition: var(--transicion);
-            cursor: pointer; /* Simula que es un botón */
-        }
+        .integrante { text-align: center; background: var(--gris); padding: 40px 15px; border-radius: 15px; border: 1px solid #eee; transition: var(--transicion); cursor: pointer; }
+        .integrante:hover { background: var(--blanco); box-shadow: 0 10px 30px rgba(52, 152, 219, 0.15); transform: translateY(-5px); border-color: var(--acento); }
         
-        /* Simulación de botón al pasar el mouse */
-        .integrante:hover { 
-            background: var(--blanco); 
-            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.15);
-            transform: translateY(-5px);
-            border-color: var(--acento);
-        }
-        
-        .foto-placeholder { width: 150px; height: 150px; border-radius: 50%; background: #ddd; margin: 0 auto 15px; border: 4px solid white; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .foto-placeholder { width: 150px; height: 150px; border-radius: 50%; background: #ddd; margin: 0 auto 15px; border: 4px solid white; overflow: hidden; display: flex; justify-content: center; align-items: center; }
         .foto-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-        .integrante h3 { margin: 10px 0 5px; color: var(--principal); }
-        .integrante p { color: #777; font-size: 0.9rem; margin: 0; }
 
-        /* Contacto */
         .contacto-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
         .form-grupo { margin-bottom: 15px; }
         input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
         .btn-enviar { background: var(--acento); color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: 600; transition: var(--transicion); }
 
-        /* Footer con Logo y Foto Grupal */
-        footer { background: var(--principal); color: white; text-align: center; padding: 60px 20px; margin-top: 50px; }
-        
-        .foto-grupal-final { 
-            max-width: 800px; 
-            margin: 0 auto 40px; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            aspect-ratio: 16 / 9;
+        /* --- FOTO GRUPAL TAMAÑO GIGANTE --- */
+        .seccion-foto-final {
+            width: 100%;
+            padding: 0; /* Quitamos el padding para que pegue a los bordes */
+            margin-top: 50px;
         }
-        .foto-grupal-final img { width: 100%; height: 100%; object-fit: cover; }
-        
+
+        .foto-grupal-final { 
+            width: 100%;
+            max-width: 100vw; /* Ancho total de pantalla */
+            overflow: hidden;
+            line-height: 0; /* Elimina espacio extra debajo de la imagen */
+        }
+
+        .foto-grupal-final img { 
+            width: 100%; 
+            height: auto; 
+            max-height: 80vh; /* Para que no ocupe más del 80% de la altura de la pantalla */
+            object-fit: cover; /* Ajusta la imagen para llenar el contenedor */
+            display: block;
+        }
+
+        footer { background: var(--principal); color: white; text-align: center; padding: 40px 20px; }
         .footer-logo { height: 60px; margin-bottom: 20px; filter: brightness(0) invert(1); }
         
         @media (max-width: 768px) {
@@ -91,7 +82,7 @@
 
     <header>
         <nav>
-            <div style="font-weight: 700; font-size: 1.5rem; letter-spacing: 1px;">WLP-SA</div>
+            <div class="logo-nav"><img src="logo.png" alt="WLP-SA Logo"></div>
             <div class="nav-links">
                 <a href="#inicio">Inicio</a>
                 <a href="#servicios">Servicios</a>
@@ -119,22 +110,22 @@
         <h2 class="titulo">Nuestro Equipo</h2>
         <div class="grid-equipo">
             <div class="integrante">
-                <div class="foto-placeholder"><img src="1000393578.jpg" alt="Tiziano" onerror="this.style.display='none';"></div>
+                <div class="foto-placeholder"><img src="1000393578.jpg" alt="Tiziano"></div>
                 <h3>Tiziano Ciocca</h3>
                 <p>CEO & Fundador</p>
             </div>
             <div class="integrante">
-                <div class="foto-placeholder"><img src="1000448711.jpg" alt="Elias" onerror="this.style.display='none';"></div>
+                <div class="foto-placeholder"><img src="1000448711.jpg" alt="Elias"></div>
                 <h3>Elias Ramos</h3>
                 <p>Dir. Finanzas</p>
             </div>
             <div class="integrante">
-                <div class="foto-placeholder"><img src="1000448712.jpg" alt="Mateo" onerror="this.style.display='none';"></div>
+                <div class="foto-placeholder"><img src="1000448712.jpg" alt="Mateo"></div>
                 <h3>Mateo Florentin</h3>
                 <p>Consultor Senior</p>
             </div>
             <div class="integrante">
-                <div class="foto-placeholder"><img src="foto4.jpg" alt="Erik" onerror="this.style.display='none';"></div>
+                <div class="foto-placeholder"><img src="foto4.jpg" alt="Erik"></div>
                 <h3>Erik Atusparia</h3>
                 <p>Gestión de Proyectos</p>
             </div>
@@ -158,11 +149,13 @@
         </div>
     </section>
 
-    <footer>
+    <div class="seccion-foto-final">
         <div class="foto-grupal-final">
-            <img src="lospapus.png" alt="Equipo WLP-SA" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <p style="display:none; padding-top: 20%;"></p>
+            <img src="lospapus.png" alt="Equipo WLP-SA">
         </div>
+    </div>
+
+    <footer>
         <img src="logo.png" alt="WLP-SA" class="footer-logo">
         <p>WLP-SA &copy; 2026 - Todos los derechos reservados.</p>
     </footer>
