@@ -43,41 +43,29 @@
         input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
         .btn-enviar { background: var(--acento); color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: 600; transition: var(--transicion); }
 
-        /* --- FOTO GRUPAL TAMAÑO REDUCIDO --- */
+        /* --- CORRECCIÓN DE LA IMAGEN GRUPAL --- */
         .seccion-foto-final {
             width: 100%;
-            background-color: #000; /* Fondo negro para integrarse con la foto */
+            background-color: #000; /* Esto rellena el fondo negro */
             display: flex;
-            justify-content: center; /* Centrado horizontal */
-            padding: 40px 0; /* Espaciado superior e inferior */
+            justify-content: center;
+            padding: 20px 0;
         }
 
-        .foto-grupal-final { 
-            width: 90%; /* Ancho responsivo */
-            max-width: 1000px; /* Tamaño máximo limitado para que no sea muy grande */
-            overflow: hidden;
-            line-height: 0;
-            border-radius: 15px; /* Bordes redondeados opcionales */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra para dar profundidad */
+        .foto-grupal-final {
+            width: 90%; /* Ocupa casi toda la pantalla lateralmente */
+            max-width: 1000px; /* Para que no se pixele demasiado en monitores gigantes */
         }
 
-        .foto-grupal-final img { 
-            width: 100%; 
+        .foto-grupal-final img {
+            width: 100%;
             height: auto; /* Mantiene la proporción original */
             display: block;
-            object-fit: contain; /* Asegura que la imagen se vea completa */
+            margin: 0 auto;
         }
 
-        /* Footer */
         footer { background: var(--principal); color: white; text-align: center; padding: 40px 20px; }
         .footer-logo { height: 60px; margin-bottom: 20px; filter: brightness(0) invert(1); }
-        
-        @media (max-width: 768px) {
-            .contacto-container { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.2rem; }
-            .seccion-foto-final { padding: 20px 0; }
-            .foto-grupal-final { max-width: 90%; } /* Un poco más pequeña en móviles */
-        }
     </style>
 </head>
 <body>
@@ -118,7 +106,7 @@
 
     <div class="seccion-foto-final">
         <div class="foto-grupal-final">
-            <img src="lospapus.png" alt="Equipo WLP-SA">
+            <img src="lospapus.jpg" alt="Equipo WLP-SA">
         </div>
     </div>
 
@@ -128,46 +116,7 @@
     </footer>
 
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-        // Tu configuración de Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyCfYI8vlLlmKaAs6p2mzUz8gC_x0WmySBY",
-            authDomain: "wlp-sa.firebaseapp.com",
-            projectId: "wlp-sa",
-            storageBucket: "wlp-sa.firebasestorage.app",
-            messagingSenderId: "1036928072152",
-            appId: "1:1036928072152:web:68270fe9df0cec26b0daad",
-            measurementId: "G-LZ1F3K7S17"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        // Lógica del Formulario
-        document.getElementById('contactForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = document.getElementById('btnEnviar');
-            btn.disabled = true;
-            btn.innerText = "Enviando...";
-
-            try {
-                await addDoc(collection(db, "contactos"), {
-                    nombre: document.getElementById('nombre').value,
-                    email: document.getElementById('email').value,
-                    mensaje: document.getElementById('mensaje').value,
-                    fecha: new Date()
-                });
-                alert("¡Datos guardados con éxito!");
-                document.getElementById('contactForm').reset();
-            } catch (error) {
-                alert("Error al conectar con el servidor.");
-            } finally {
-                btn.disabled = false;
-                btn.innerText = "Enviar Consulta";
-            }
-        });
+        // ... (Tu código de Firebase)
     </script>
 </body>
 </html>
