@@ -18,61 +18,58 @@
         * { box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; margin: 0; color: #333; line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
         
-        /* Header y Nav */
         header { background: linear-gradient(135deg, var(--principal) 0%, #2c3e50 100%); color: white; padding: 0.5rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
         nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; padding: 0 20px; }
         .logo-nav img { height: 50px; width: auto; display: block; }
         .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: var(--transicion); }
         .nav-links a:hover { color: var(--acento); }
 
-        /* Hero */
         .hero { background-color: var(--gris); text-align: center; padding: 100px 20px; border-bottom: 1px solid #eee; }
         .hero h1 { font-size: 3rem; margin-bottom: 10px; color: var(--principal); font-weight: 700; }
 
-        /* Secciones Generales */
         section { padding: 80px 20px; max-width: 1200px; margin: auto; }
         .titulo { text-align: center; margin-bottom: 50px; font-size: 2.2rem; }
         
-        /* Servicios */
         .grid-servicios { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid var(--acento); transition: var(--transicion); }
 
-        /* Equipo */
         .grid-equipo { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
         .integrante { text-align: center; background: var(--gris); padding: 40px 15px; border-radius: 15px; border: 1px solid #eee; transition: var(--transicion); cursor: pointer; }
         .integrante:hover { background: var(--blanco); box-shadow: 0 10px 30px rgba(52, 152, 219, 0.15); transform: translateY(-5px); border-color: var(--acento); }
         .foto-placeholder { width: 150px; height: 150px; border-radius: 50%; background: #ddd; margin: 0 auto 15px; border: 4px solid white; overflow: hidden; display: flex; justify-content: center; align-items: center; }
         .foto-placeholder img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Contacto */
         .contacto-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
         .form-grupo { margin-bottom: 15px; }
         input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
         .btn-enviar { background: var(--acento); color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: 600; transition: var(--transicion); }
 
-        /* --- FOTO GRUPAL FINAL CORREGIDA --- */
+        /* --- FOTO GRUPAL COMO APARTADO CONTENIDO --- */
         .seccion-foto-final {
             width: 100%;
-            padding: 0;
-            margin-top: 50px;
-            background-color: #000; /* Fondo negro para integrarse con la foto */
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0; /* Espacio para que parezca un apartado */
         }
         .foto-grupal-final { 
-            width: 100%;
+            width: 90%;
+            max-width: 1000px; /* Tamaño controlado para que no sea gigante */
+            max-height: 80vh; /* No permite que sea más alta que el 80% de la pantalla */
             display: flex;
             justify-content: center;
             overflow: hidden;
-            line-height: 0;
         }
         .foto-grupal-final img { 
-            width: 100%; 
-            max-width: 100%; /* Permite que se vea grande en toda la pantalla */
-            height: auto; /* Mantiene la proporción para que no se corte nada */
-            display: block;
-            object-fit: contain; /* Asegura que la imagen se vea completa de pies a cabeza */
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 80vh; /* Ajuste para que entre siempre en pantalla */
+            object-fit: contain;
+            border-radius: 8px; /* Opcional: suaviza los bordes del apartado */
         }
 
-        /* Footer */
         footer { background: var(--principal); color: white; text-align: center; padding: 40px 20px; }
         .footer-logo { height: 60px; margin-bottom: 20px; filter: brightness(0) invert(1); }
         
@@ -184,18 +181,24 @@
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('btnEnviar');
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('mensaje').value;
+
             btn.disabled = true;
             btn.innerText = "Enviando...";
+
             try {
                 await addDoc(collection(db, "contactos"), {
-                    nombre: document.getElementById('nombre').value,
-                    email: document.getElementById('email').value,
-                    mensaje: document.getElementById('mensaje').value,
+                    nombre: nombre,
+                    email: email,
+                    mensaje: mensaje,
                     fecha: new Date()
                 });
                 alert("¡Datos guardados con éxito!");
                 document.getElementById('contactForm').reset();
             } catch (error) {
+                console.error("Error al añadir documento: ", error);
                 alert("Error al conectar con el servidor.");
             } finally {
                 btn.disabled = false;
