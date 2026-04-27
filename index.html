@@ -24,8 +24,34 @@
         .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: var(--transicion); }
         .nav-links a:hover { color: var(--acento); }
 
-        .hero { background-color: var(--gris); text-align: center; padding: 100px 20px; border-bottom: 1px solid #eee; }
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; color: var(--principal); font-weight: 700; }
+        /* --- HERO CON IMAGEN DE FONDO --- */
+        .hero { 
+            position: relative;
+            background-image: url('Constructora.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efecto Parallax opcional */
+            text-align: center; 
+            padding: 160px 20px; 
+            color: white; /* Texto blanco para que resalte */
+        }
+
+        /* Capa oscura para legibilidad */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Oscurece la foto un 50% */
+            z-index: 1;
+        }
+
+        .hero h1, .hero p {
+            position: relative;
+            z-index: 2; /* Por encima de la capa negra */
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; font-weight: 700; color: white; }
+        .hero p { font-size: 1.4rem; font-weight: 300; }
 
         section { padding: 80px 20px; max-width: 1200px; margin: auto; }
         .titulo { text-align: center; margin-bottom: 50px; font-size: 2.2rem; }
@@ -44,19 +70,18 @@
         input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
         .btn-enviar { background: var(--acento); color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: 600; transition: var(--transicion); }
 
-        /* --- FOTO GRUPAL COMO APARTADO CONTENIDO --- */
         .seccion-foto-final {
             width: 100%;
             background-color: #000;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 40px 0; /* Espacio para que parezca un apartado */
+            padding: 40px 0;
         }
         .foto-grupal-final { 
             width: 90%;
-            max-width: 1000px; /* Tamaño controlado para que no sea gigante */
-            max-height: 80vh; /* No permite que sea más alta que el 80% de la pantalla */
+            max-width: 1000px;
+            max-height: 80vh;
             display: flex;
             justify-content: center;
             overflow: hidden;
@@ -65,9 +90,9 @@
             width: auto;
             max-width: 100%;
             height: auto;
-            max-height: 80vh; /* Ajuste para que entre siempre en pantalla */
+            max-height: 80vh;
             object-fit: contain;
-            border-radius: 8px; /* Opcional: suaviza los bordes del apartado */
+            border-radius: 8px;
         }
 
         footer { background: var(--principal); color: white; text-align: center; padding: 40px 20px; }
@@ -76,6 +101,7 @@
         @media (max-width: 768px) {
             .contacto-container { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.2rem; }
+            .hero { padding: 100px 20px; }
         }
     </style>
 </head>
@@ -95,7 +121,7 @@
 
     <section id="inicio" class="hero">
         <h1>Consultoría WLP-SA</h1>
-        <p>Expertos en logistica.</p>
+        <p>Expertos en logística.</p>
     </section>
 
     <section id="servicios">
